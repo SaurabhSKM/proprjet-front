@@ -1,0 +1,38 @@
+variables:
+  NODE_VERSION: "23"
+  DOCKER_PATH: dockerfile/Dockerfile
+  CLUSTER: "IFPEN"
+  GITLAB_API_URL: "https://gitlab.ifpen.fr/api/v4"
+  PROJECT_ID: $CI_PROJECT_ID
+  PROJECT_NAME: $CI_PROJECT_NAME
+
+include:
+  # - project: 'fast-it/ci-cd/templates-ci-cd'
+  #   file: '/eh-bumpversion.yml'
+
+  # Test
+  - project: 'fast-it/ci-cd/templates-ci-cd'
+    ref: 'fast-it'
+    file: '/node/linter/linter.yml'
+  - project: 'fast-it/ci-cd/templates-ci-cd'
+    file: '/scancode/scancode.yml'
+    ref: 'fast-it'
+  #- project: 'fast-it/ci-cd/templates-ci-cd'
+   # file: '/sonarqube/sonarqube.yml'
+   # ref: 'fast-it'
+  - project: 'fast-it/ci-cd/templates-ci-cd'
+    file: '/trivy/trivy.yml'
+    ref: 'fast-it'
+
+  # - project: 'fast-it/ci-cd/templates-ci-cd'
+  #   file: '/node/test.yml' # Ce template gère le runner shell et le npm install
+
+  ## deploy
+  - project: 'fast-it/ci-cd/templates-ci-cd'
+    file: '/harbor/harbor.yml'
+    ref: 'fast-it'
+
+stages:
+  # - standard-version
+  - test
+  - deploy

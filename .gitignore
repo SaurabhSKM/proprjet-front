@@ -1,0 +1,47 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Coverage
+coverage/
+.nyc_output/
+lcov.info
+
+# SonarQube
+.sonar/
+.scannerwork/
+
+# Environment
+.env
+.env.*
+!.env.example
+public/env.js
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+public/env.js
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# SonarQube
+.sonar/

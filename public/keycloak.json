@@ -1,0 +1,9 @@
+{
+  "realm": "FAST-IT",
+  "auth-server-url": "https://keycloak-dtp.ifpen.fr/",
+  "ssl-required": "external",
+  "resource": "fast-it",
+  "public-client": true,
+  "confidential-port": 0
+}
+
